@@ -13,6 +13,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/anup", (req, res) => {
+  res.send("Hello World! This is Anup");
+});
+
 // Health Check Route (Used by Smoke Tests & Monitoring)
 app.get("/health", (req, res) => {
   res.status(200).json({
