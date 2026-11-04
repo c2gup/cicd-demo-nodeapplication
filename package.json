@@ -5,8 +5,14 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "build": "node --check src/server.js src/app.js",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:smoke": "node scripts/smoke-test.js",
+    "package": "tar -czf sortbackend.tar.gz src/ package.json package-lock.json",
+    "deploy": "bash scripts/deploy.sh",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "express",
@@ -20,7 +26,11 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
     "jest": "^30.5.2",
+    "jest-junit": "^17.0.0",
     "supertest": "^7.3.1"
   }
 }

@@ -13,6 +13,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// Health Check Route (Used by Smoke Tests & Monitoring)
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "UP",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Middleware: Only user with id = 1 has access
 const checkUserAccess = (req, res, next) => {
   const userId = Number(req.params.id);

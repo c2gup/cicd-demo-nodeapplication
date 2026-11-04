@@ -11,6 +11,17 @@ describe("API Endpoints", () => {
     });
   });
 
+  // Test GET /health (Health Check)
+  describe("GET /health", () => {
+    it("should return status UP with uptime and timestamp", async () => {
+      const res = await request(app).get("/health");
+      expect(res.statusCode).toBe(200);
+      expect(res.body.status).toBe("UP");
+      expect(res.body).toHaveProperty("uptime");
+      expect(res.body).toHaveProperty("timestamp");
+    });
+  });
+
   // Test POST /user
   describe("POST /user", () => {
     it("should create a new user successfully", async () => {
