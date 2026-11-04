@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'nodejS-26' // Jenkins Tool name (Manage Jenkins -> Tools -> NodeJS)
+        nodejs 'nodejs-26' // Jenkins Tool name (Manage Jenkins -> Tools -> NodeJS)
     }
 
     options {
