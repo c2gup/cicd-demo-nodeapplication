@@ -6,13 +6,14 @@
   "scripts": {
     "start": "node src/server.js",
     "build": "node --check src/server.js src/app.js",
-    "test": "jest",
+    
     "test:coverage": "jest --coverage",
     "test:smoke": "node scripts/smoke-test.js",
     "package": "tar -czf sortbackend.tar.gz src/ package.json package-lock.json",
     "deploy": "bash scripts/deploy.sh",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "keywords": [
     "express",
